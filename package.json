@@ -1,0 +1,34 @@
+{
+  "name": "nginx-httpapi",
+  "version": "1.0.0",
+  "description": "An Nginx HTTP API",
+  "main": "main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jasmine": "^1.1.0",
+    "jasmine": "^2.9.0"
+  },
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=config/jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walkerandco/nginx-httpapi.git"
+  },
+  "keywords": [
+    "nginx",
+    "http",
+    "api",
+    "rest"
+  ],
+  "author": "Steven Walker-Roberts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walkerandco/nginx-httpapi/issues"
+  },
+  "homepage": "https://github.com/walkerandco/nginx-httpapi#readme"
+}

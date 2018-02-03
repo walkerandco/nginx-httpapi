@@ -5,3 +5,13 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 nginx-httpapi	/home/swr/git/nginx-httpapi/README.md	/^# nginx-httpapi$/;"	function	line:3
+testsum	/home/swr/git/nginx-httpapi/main.js	/^  testsum: function (a, b) {$/;"	function	line:10
+module.exports.testsum	/home/swr/git/nginx-httpapi/main.js	/^module.exports = {$/;"	method	line:3
+testsum	/home/swr/git/nginx-httpapi/server.js	/^  testsum: function (a, b) {$/;"	function	line:10
+module.exports.testsum	/home/swr/git/nginx-httpapi/server.js	/^module.exports = {$/;"	method	line:3
+assert	/home/swr/git/nginx-httpapi/test/server-spec.js	/^var assert = require('assert');$/;"	variable	line:1
+test	/home/swr/git/nginx-httpapi/test/server-spec.js	/^var test = require('jasmine');$/;"	variable	line:2
+file	/home/swr/git/nginx-httpapi/test/server-spec.js	/^var file = require('\/home\/swr\/git\/nginx-httpapi\/server.min.js');$/;"	variable	line:3
+describe	/home/swr/git/nginx-httpapi/test/server-spec.js	/^describe('testsum function', function() {$/;"	function	line:5
+it	/home/swr/git/nginx-httpapi/test/server-spec.js	/^  it('returns the sum of both params', function() {$/;"	function	line:6
+it	/home/swr/git/nginx-httpapi/test/server-spec.js	/^  it('returns the sum of both params', function() {$/;"	function	line:9
