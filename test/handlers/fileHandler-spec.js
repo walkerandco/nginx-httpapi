@@ -1,40 +1,48 @@
-var assert = require('assert');
-var test = require('jasmine');
-var file = require('/home/swr/git/nginx-httpapi/lib/handlers/fileHandler.js');
+const assert = require('assert');
+const expect = require('chai').expect;
+const sinon = require('sinon');
+const file = require('/home/swr/git/nginx-httpapi/lib/handlers/fileHandler.js');
 
 
 describe('fileHandler readConfig function', () => {
-  let out = file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf');
-  it('should read nginx conf file', () => {
-    expect(out).toBeTruthy();
+  it('should read nginx conf file', async () => {
+    try {
+      const out = await  file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf');
+      expect(out).to.not.be.null;
+    } catch (e) {
+      console.error(e);
+      assert(false);
+    }
   });
-  it('should read in as containing more than 1 character', () => {
-    expect(out.toString().length).toBeGreaterThan(1);
+  it('should read in as containing more than 1 character', async () => {
+    try {
+      const out = await  file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf');
+      expect(out.length).to.be.above(0);
+    } catch (e) {
+      console.error(e);
+      assert(false);
+    }
   });
 });
 
 describe('fileHandler writeConfig function', () => {
-  var out;
-  beforeEach((done) => {
-    file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf').then((data) => {
-      out = data;
-      done();
-    });
-  });
-  it('should return true for a write operation', (done) => {
-    file.writeConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', out, (truth) => {
-      expect(truth).toBeTruthy();
-      done();
-    })
-  }, 2000);
-  it('should read in a value of "nginx"', (done) => {
+  it('should return true for a write operation', async () => {
     try {
-      file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', () => {
-        expect(out).toContain("nginx");
-        done();
-      });
+      const out = await file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf');
+      const truth = await file.writeConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', out);
+      expect(truth).to.not.be.null;
     } catch (e) {
       console.error(e);
+      assert(false);
     }
-  }, 2000);
+  });
+  it('should read in a value of "nginx"', async () => {
+    try {
+      const out = await file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test');
+      expect(out).to.match(/nginx/);
+    } catch (e) {
+      console.error(e);
+      assert(false);
+    }
+  });
 });

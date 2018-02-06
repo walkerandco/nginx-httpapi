@@ -16,7 +16,7 @@
     "sinon": "^4.2.2"
   },
   "scripts": {
-    "test": "jasmine JASMINE_CONFIG_PATH=config/jasmine.json"
+    "test": "mocha $(find test -name '*spec.js')"
   },
   "repository": {
     "type": "git",
