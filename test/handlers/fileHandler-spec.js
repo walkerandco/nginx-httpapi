@@ -14,14 +14,27 @@ describe('fileHandler readConfig function', () => {
 });
 
 describe('fileHandler writeConfig function', () => {
-  beforeEach(() => {
-    file.writeConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', "test");
+  var out;
+  beforeEach((done) => {
+    file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf').then((data) => {
+      out = data;
+      done();
+    });
   });
-  it('should read in a value of "test"', () => {
+  it('should return true for a write operation', (done) => {
+    file.writeConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', out, (truth) => {
+      expect(truth).toBeTruthy();
+      done();
+    })
+  }, 2000);
+  it('should read in a value of "nginx"', (done) => {
     try {
-      file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', (out) => {expect(out).toContain("test")});
+      file.readConfig('/home/swr/git/nginx-httpapi/test/res/nginx.conf.test', () => {
+        expect(out).toContain("nginx");
+        done();
+      });
     } catch (e) {
       console.error(e);
     }
-  });
+  }, 2000);
 });
