@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.1.2",
+    "crc": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-contrib-jasmine": "^1.1.0",
     "jasmine-expect": "^3.8.3",
